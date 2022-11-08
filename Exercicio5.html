@@ -1,0 +1,61 @@
+
+
+<script>
+
+ nomeUsuario = prompt('Digite o seu nome')
+ valorEconomizado = parseInt(prompt("Diga quanto em dinheiro você já possui"))
+ viagemEscolhida = prompt("Escolha o local de viagem que pretende ir!")
+
+ disney = 15000
+ madrid = 12000
+ maceio = 8000
+ ribeiraoPreto = 5000
+ valorRestante = 0;
+
+ switch(viagemEscolhida) {
+    case disney: 
+            if(valorEconomizado > disney)
+            {
+                 alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
+            }
+            else{
+                valorRestante = disney - valorEconomizado
+                 alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
+            }
+    break;
+    case madrid: 
+            if(valorEconomizado > madrid)
+            {
+                 alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
+            }
+            else{
+                valorRestante = madrid - valorEconomizado
+                 alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
+            }
+    break;
+    case maceio: 
+            if(valorEconomizado > maceio)
+            {
+                 alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
+            }
+            else{
+                valorRestante = maceio - valorEconomizado
+                 alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
+            }
+    break;
+    case ribeirao: 
+            if(valorEconomizado > ribeirao)
+            {
+                 alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
+            }
+            else{
+                valorRestante = ribeiraoPreto - valorEconomizado
+                alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
+            }
+    break;
+    default:
+        alert("Digite um valor valido")
+ }
+
+
+</script>
