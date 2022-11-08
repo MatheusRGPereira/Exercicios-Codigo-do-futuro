@@ -1,56 +1,57 @@
 
 
 <script>
+const disney = 15000
+const madrid = 12000
+const maceio = 8000
+const ribeiraoPreto = 5000
+var valorRestante = 0;
 
- nomeUsuario = prompt('Digite o seu nome')
- valorEconomizado = parseInt(prompt("Diga quanto em dinheiro você já possui"))
- viagemEscolhida = prompt("Escolha o local de viagem que pretende ir!")
+ let nomeUsuario = prompt('Digite o seu nome')
+ var valorEconomizado = parseInt(prompt(`Olá ${nomeUsuario} diga quanto em dinheiro você já possui`))
+ var viagemEscolhida = parseInt(prompt("Escolha o local de viagem que pretende ir! 1- para Disney 2- para Madrid 3 - para Maceió e 4- para Ribeirão preto "))
 
- disney = 15000
- madrid = 12000
- maceio = 8000
- ribeiraoPreto = 5000
- valorRestante = 0;
 
  switch(viagemEscolhida) {
-    case disney: 
-            if(valorEconomizado > disney)
+    case 1: 
+            if(valorEconomizado < disney)
             {
-                 alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
+               valorRestante = disney - valorEconomizado
+                 alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
             }
             else{
                 valorRestante = disney - valorEconomizado
-                 alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
-            }
-    break;
-    case madrid: 
-            if(valorEconomizado > madrid)
-            {
                  alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
             }
-            else{
-                valorRestante = madrid - valorEconomizado
+    break;
+    case 2: 
+            if(valorEconomizado < madrid)
+            {
+                 valorRestante = madrid - valorEconomizado
                  alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
+          }
+          else{
+               alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
             }
     break;
-    case maceio: 
-            if(valorEconomizado > maceio)
+    case 3: 
+            if(valorEconomizado < maceio)
             {
-                 alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
-            }
-            else{
-                valorRestante = maceio - valorEconomizado
+                 valorRestante = maceio - valorEconomizado
                  alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
+          }
+          else{
+               alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
             }
     break;
-    case ribeirao: 
-            if(valorEconomizado > ribeirao)
+    case 4: 
+            if(valorEconomizado < ribeiraoPreto)
             {
-                 alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
+                 valorRestante = ribeiraoPreto - valorEconomizado
+                 alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
             }
-            else{
-                valorRestante = ribeiraoPreto - valorEconomizado
-                alert(`Voce não possui o dinheiro necessario para esta viagem ainda lhe falta ${valorRestante}`)
+          else{
+               alert("Voce ja tem o valor necessario para fazer essa viagem divirtasse !!!!")
             }
     break;
     default:
