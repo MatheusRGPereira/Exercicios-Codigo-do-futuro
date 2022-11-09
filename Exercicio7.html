@@ -1,0 +1,52 @@
+
+<script>
+    //let nomeUsuario = prompt("Digite aqui o seu nome");
+    quantidadeAlunos = parseInt(prompt("Digite aqui a quantidade de alunos da sua lista"))
+    quantidadeNotas = parseInt(prompt("Digite aqui a quantidade de notas de cada aluno"))
+    var alunos = []
+    var aprovados = []
+    var recuperacao = []
+    var reprovados =[]
+    var soma = 0;
+    media = 0;
+
+    for(let i = 0; i < quantidadeAlunos; i++){
+        var aluno = {
+            nome: prompt("Digite o nome do aluno"),
+            matricula: prompt("Digite o numero da matricula do aluno"),
+            notas: [],
+            media: 0
+        }
+       for(let n = 0; n < quantidadeNotas; n++){
+            aluno.notas[n] = [parseInt(prompt(`Digite a nota n${n+1}`))]
+        }
+        alunos.push(aluno)
+    }
+
+    
+   
+
+
+    for(var n = 0; n < quantidadeAlunos; n++){
+        
+        if(alunos[n].media == 0) 
+        {
+            soma = alunos.notas.reduce(function (notaAnterior, notaAtual) {
+        return notaAnterior + notaAtual
+    })
+            media = soma /quantidadeNotas
+            alunos[n].media = media;
+        }
+    }
+
+    // console.log("Lista de alunos aprovados")
+    // console.log(aprovados)
+    // console.log("Lista de alunos em recuperação")
+    // console.log(recuperacao)
+    // console.log("Lista de alunos reprovados")
+    // console.log(reprovados)
+
+        console.log(alunos)
+    
+    </script>
+    
