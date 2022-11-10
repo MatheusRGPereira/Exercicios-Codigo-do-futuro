@@ -1,52 +1,76 @@
-
 <script>
-    //let nomeUsuario = prompt("Digite aqui o seu nome");
     quantidadeAlunos = parseInt(prompt("Digite aqui a quantidade de alunos da sua lista"))
     quantidadeNotas = parseInt(prompt("Digite aqui a quantidade de notas de cada aluno"))
     var alunos = []
-    var aprovados = []
-    var recuperacao = []
-    var reprovados =[]
     var soma = 0;
     media = 0;
+    var opcao = parseInt(prompt(
+    `
+    1) para Cadastrar novo aluno
+    2) para Gerar Relatorio
+    3) para Sair 
+    `
+    ))
+    while(opcao < 3){
 
-    for(let i = 0; i < quantidadeAlunos; i++){
+        switch(opcao){
+            
+
+   case 1: for (let i = 0; i < quantidadeAlunos; i++) {
         var aluno = {
             nome: prompt("Digite o nome do aluno"),
             matricula: prompt("Digite o numero da matricula do aluno"),
             notas: [],
-            media: 0
+            media: 0,
+            status: ""
         }
-       for(let n = 0; n < quantidadeNotas; n++){
-            aluno.notas[n] = [parseInt(prompt(`Digite a nota n${n+1}`))]
+        for (let n = 0; n < quantidadeNotas; n++) {
+            aluno.notas[n] = [parseInt(prompt(`Digite a nota n${n + 1} do aluno `))]
         }
         alunos.push(aluno)
-    }
 
-    
-   
-
-
-    for(var n = 0; n < quantidadeAlunos; n++){
-        
-        if(alunos[n].media == 0) 
-        {
-            soma = alunos.notas.reduce(function (notaAnterior, notaAtual) {
-        return notaAnterior + notaAtual
-    })
-            media = soma /quantidadeNotas
-            alunos[n].media = media;
+        for (let j = 0; j < quantidadeNotas; j++) {
+            soma += parseInt(alunos[i].notas[j])
         }
+        media = soma / quantidadeNotas;
+        alunos[i].media = media
+
+        if (alunos[i].media >= 7) {
+            alunos[i].status = "Aprovado!";
+        } else if (alunos[i].media < 7 && alunos[i].media >= 5) {
+            alunos[i].status = "Recuperação!";
+        } else {
+            alunos[i].status = "Reporavado!";
+        }
+        soma = 0
     }
+    break;
 
-    // console.log("Lista de alunos aprovados")
-    // console.log(aprovados)
-    // console.log("Lista de alunos em recuperação")
-    // console.log(recuperacao)
-    // console.log("Lista de alunos reprovados")
-    // console.log(reprovados)
+    case 2: for(let s = 0; s < quantidadeAlunos; s++){
+        alert(`
+        Nome: ${alunos[s].nome}
+        Matricula: ${alunos[s].matricula}
+        Notas: ${alunos[s].notas}
+        Media: ${alunos[s].media}
+        Status: ${alunos[s].status}
+        `)
+    }
+    break;
 
-        console.log(alunos)
-    
-    </script>
-    
+    case 3:
+        alert("Muito obrigada por usar a nossa aplicação") 
+
+    break;
+
+    console.table(alunos)
+
+}
+opcao = parseInt(prompt(
+    `
+    1) para Cadastrar novo aluno
+    2) para Gerar Relatorio
+    3) para Sair 
+    `
+    ))
+}
+</script>
